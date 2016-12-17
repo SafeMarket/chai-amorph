@@ -1,0 +1,28 @@
+{
+  "name": "chai-amorph",
+  "version": "0.0.0",
+  "description": "Amorph bindings for chai testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/SafeMarket/chai-amorph.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SafeMarket/chai-amorph/issues"
+  },
+  "homepage": "https://github.com/SafeMarket/chai-amorph#readme",
+  "devDependencies": {
+    "amorph-bignumber": "0.0.3",
+    "bignumber": "^1.1.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "amorph": "^0.1.2"
+  }
+}
