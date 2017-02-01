@@ -5,13 +5,12 @@ module.exports = (chai, utils) => {
     this._obj = this._obj.to(form)
   })
 
-  utils.addMethod(chai.Assertion.prototype, 'amorphEqual', function (amorph, _form) {
-    const form = _form || amorph.form
-    const expected = amorph.to(form)
-    const actual = this._obj.to(form)
+  utils.addMethod(chai.Assertion.prototype, 'amorphEqual', function (amorph, form) {
+    const expected = amorph
+    const actual = this._obj
 
     this.assert(
-      amorph.equals(this._obj),
+      expected.equals(actual, form),
       `expected ${expected} to equal ${actual}`,
       `expected ${expected} to not equal ${actual}`
     )
