@@ -17,12 +17,12 @@
   },
   "homepage": "https://github.com/SafeMarket/chai-amorph#readme",
   "devDependencies": {
-    "amorph-bignumber": "0.0.3",
+    "amorph-bignumber": "^1.0.2",
     "bignumber": "^1.1.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0"
   },
   "dependencies": {
-    "amorph": "^0.1.2"
+    "amorph": "^1.1.0"
   }
 }

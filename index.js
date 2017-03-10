@@ -7,8 +7,8 @@ module.exports = (chai, utils) => {
 
   utils.addMethod(chai.Assertion.prototype, 'amorphEqual', function (amorph, form) {
 
-    const expected = form ? new Amorph(this._obj.to('form'), form) : this._obj
-    const actual = form ? new Amorph(actual.to('form'), form) : amorph
+    const expected = form ? new Amorph(this._obj.to(form), form) : this._obj
+    const actual = form ? new Amorph(amorph.to(form), form) : amorph
 
     this.assert(
       expected.equals(actual, form),

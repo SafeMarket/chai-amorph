@@ -1,13 +1,13 @@
 const chai = require('chai')
 const chaiAmorph = require('../')
 const Amorph = require('amorph')
-const bignumberConverters = require('amorph-bignumber')
+const bignumberPlugin = require('amorph-bignumber')
 const Bignumber = require('bignumber.js')
 
 const expect = chai.expect
 chai.use(chaiAmorph)
 
-Amorph.loadConverters(bignumberConverters)
+Amorph.loadPlugin(bignumberPlugin)
 Amorph.ready()
 
 describe('chai amorph', () => {
@@ -24,6 +24,10 @@ describe('chai amorph', () => {
     expect(oneBignumber).amorphTo('number').to.equal(1)
   })
 
+  it('oneBignumber should amorphTo number equal 1', () => {
+    expect(oneBignumber).amorphTo('number').to.equal(1)
+  })
+
   it('oneNumber should amorphEqual oneNumber', () => {
     expect(oneNumber).to.amorphEqual(oneNumber)
   })
@@ -34,6 +38,10 @@ describe('chai amorph', () => {
 
   it('twoBignumber should amorphEqual twoBignumber', () => {
     expect(twoBignumber).to.amorphEqual(twoBignumber)
+  })
+
+  it('twoBignumber should amorphEqual twoNumber (bignnmber)', () => {
+    expect(twoBignumber).to.amorphEqual(twoNumber, 'bignumber')
   })
 
 })
