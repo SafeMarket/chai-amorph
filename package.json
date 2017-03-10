@@ -1,6 +1,6 @@
 {
   "name": "chai-amorph",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Amorph bindings for chai testing",
   "main": "index.js",
   "scripts": {
