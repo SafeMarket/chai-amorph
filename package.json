@@ -4,7 +4,7 @@
   "description": "Amorph bindings for chai testing",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test.js"
   },
   "repository": {
     "type": "git",
@@ -17,12 +17,13 @@
   },
   "homepage": "https://github.com/SafeMarket/chai-amorph#readme",
   "devDependencies": {
+    "amorph": "^2.0.0",
     "amorph-bignumber": "^1.0.2",
     "bignumber": "^1.1.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0"
   },
   "dependencies": {
-    "amorph": "^1.1.0"
+    "arguguard": "^2.1.1"
   }
 }

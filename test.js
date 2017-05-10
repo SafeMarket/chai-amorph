@@ -1,5 +1,5 @@
 const chai = require('chai')
-const chaiAmorph = require('../')
+const chaiAmorph = require('./')
 const Amorph = require('amorph')
 const bignumberPlugin = require('amorph-bignumber')
 const Bignumber = require('bignumber.js')
@@ -8,7 +8,6 @@ const expect = chai.expect
 chai.use(chaiAmorph)
 
 Amorph.loadPlugin(bignumberPlugin)
-Amorph.ready()
 
 describe('chai amorph', () => {
   const oneNumber = new Amorph(1, 'number')
