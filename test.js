@@ -1,30 +1,29 @@
 const chai = require('chai')
 const chaiAmorph = require('./')
 const Amorph = require('amorph')
-const bignumberPlugin = require('amorph-bignumber')
+const amorphNumber = require('amorph-number')
+const amorphBignumber = require('amorph-bignumber')
 const Bignumber = require('bignumber.js')
 
 const expect = chai.expect
 chai.use(chaiAmorph)
 
-Amorph.loadPlugin(bignumberPlugin)
-
 describe('chai amorph', () => {
-  const oneNumber = new Amorph(1, 'number')
-  const oneBignumber = new Amorph(new Bignumber(1), 'bignumber')
-  const twoNumber = new Amorph(2, 'number')
-  const twoBignumber = new Amorph(new Bignumber(2), 'bignumber')
+  const oneNumber = Amorph.from(amorphNumber.unsigned, 1)
+  const oneBignumber = Amorph.from(amorphBignumber.unsigned, new Bignumber(1))
+  const twoNumber = Amorph.from(amorphNumber.unsigned, 2)
+  const twoBignumber = Amorph.from(amorphBignumber.unsigned, new Bignumber(2))
 
   it('oneNumber should amorphTo number equal 1', () => {
-    expect(oneNumber).amorphTo('number').to.equal(1)
+    expect(oneNumber).amorphTo(amorphNumber.unsigned).to.equal(1)
   })
 
   it('oneBignumber should amorphTo number equal 1', () => {
-    expect(oneBignumber).amorphTo('number').to.equal(1)
+    expect(oneBignumber).amorphTo(amorphNumber.unsigned).to.equal(1)
   })
 
   it('oneBignumber should amorphTo number equal 1', () => {
-    expect(oneBignumber).amorphTo('number').to.equal(1)
+    expect(oneBignumber).amorphTo(amorphNumber.unsigned).to.equal(1)
   })
 
   it('oneNumber should amorphEqual oneNumber', () => {
@@ -40,7 +39,7 @@ describe('chai amorph', () => {
   })
 
   it('twoBignumber should amorphEqual twoNumber (bignnmber)', () => {
-    expect(twoBignumber).to.amorphEqual(twoNumber, 'bignumber')
+    expect(twoBignumber).to.amorphEqual(twoNumber)
   })
 
 })

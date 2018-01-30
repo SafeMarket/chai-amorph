@@ -1,29 +1,26 @@
-const arguguard = require('arguguard')
-const Validator = require('arguguard/lib/Validator')
+const defunction = require('defunction')
+const getValidateConstructorNamed = require('defunction/lib/validates/getConstructorNamed')
+const validateUndefined = require('defunction/lib/validates/undefined')
 
-const optionalFormValidator = new Validator('OptionalForm', (form) => {
-  if (form !== undefined && typeof form !== 'string') {
-    throw new Error('Should be either undefined or a string')
-  }
-})
+const validateAmorph = getValidateConstructorNamed('Amorph')
+const validateAmorphConverter = getValidateConstructorNamed('AmorphConverter')
 
 module.exports = (chai, utils) => {
-  utils.addChainableMethod(chai.Assertion.prototype, 'amorphTo', function (form) {
-    arguguard('chaiAmorph.amorphTo', ['string'], arguments)
-    this._obj = this._obj.to(form)
-  })
+  utils.addChainableMethod(chai.Assertion.prototype, 'amorphTo', defunction(
+    [validateAmorphConverter],
+    validateUndefined,
+    function amorphTo(form) {
+      validateAmorph('this._obj', this._obj)
+      this._obj = this._obj.to(form)
+    }
+  ))
 
-  utils.addMethod(chai.Assertion.prototype, 'amorphEqual', function (amorph, form) {
-    arguguard('chaiAmorph.amorphEqual', ['Amorph', optionalFormValidator], arguments)
-
-    const Amorph = amorph.constructor
-    const expected = form ? new Amorph(this._obj.to(form), form) : this._obj
-    const actual = form ? new Amorph(amorph.to(form), form) : amorph
-
-    this.assert(
-      expected.equals(actual, form),
-      `expected ${expected} to equal ${actual}`,
-      `expected ${expected} to not equal ${actual}`
-    )
-  })
+  utils.addMethod(chai.Assertion.prototype, 'amorphEqual', defunction(
+    [validateAmorph],
+    validateUndefined,
+    function amorphEqual(amorph) {
+      validateAmorph('this._obj', this._obj)
+      amorph.equals(this._obj)
+    }
+  ))
 }
