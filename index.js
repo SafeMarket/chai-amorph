@@ -19,8 +19,13 @@ module.exports = (chai, utils) => {
     [validateAmorph],
     validateUndefined,
     function amorphEqual(amorph) {
-      validateAmorph('this._obj', this._obj)
-      amorph.equals(this._obj)
+      this.assert(
+        this._obj.equals(amorph)
+      , "expected #{this} to be of type #{exp} but got #{act}"
+      , "expected #{this} to not be of type #{act}"
+      , this._obj  // expected
+      , amorph     // actual
+    );
     }
   ))
 }
