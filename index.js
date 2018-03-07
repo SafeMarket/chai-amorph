@@ -21,10 +21,10 @@ module.exports = (chai, utils) => {
     function amorphEqual(amorph) {
       this.assert(
         this._obj.equals(amorph)
-      , "expected #{this} to be of type #{exp} but got #{act}"
-      , "expected #{this} to not be of type #{act}"
-      , this._obj  // expected
-      , amorph     // actual
+      , "expected #{exp} to equal #{act}"
+      , "expected #{exp} to not be of type #{act}"
+      , this._obj.toString()  // expected
+      , amorph.toString()     // actual
     );
     }
   ))
