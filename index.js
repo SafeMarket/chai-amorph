@@ -22,7 +22,7 @@ module.exports = (chai, utils) => {
       this.assert(
         this._obj.equals(amorph)
       , "expected #{exp} to equal #{act}"
-      , "expected #{exp} to not be of type #{act}"
+      , "expected #{exp} to not equal #{act}"
       , this._obj.toString()  // expected
       , amorph.toString()     // actual
     );
